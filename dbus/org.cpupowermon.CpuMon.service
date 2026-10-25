@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.cpupowermon.CpuMon
+Exec=/usr/local/lib/cpupowermon/cpumond
+SystemdService=cpumond.service

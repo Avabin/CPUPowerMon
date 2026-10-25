@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CpuMon.Client/CpuMon.Client.csproj" />
+    <Project Path="src/CpuMon.Core/CpuMon.Core.csproj" />
+    <Project Path="src/CpuMon.Service/CpuMon.Service.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CpuMon.Core.Tests/CpuMon.Core.Tests.csproj" />
+  </Folder>
+</Solution>

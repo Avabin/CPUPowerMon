@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="/org/cpupowermon/CpuMon">
+  <interface name="org.cpupowermon.CpuMon1">
+    <method name="GetPowerWatts">
+      <arg type="d" name="watts" direction="out" />
+    </method>
+    <method name="GetSample">
+      <arg type="(tdtb)" name="sample" direction="out" />
+    </method>
+    <method name="Refresh" />
+
+    <signal name="PowerChanged">
+      <arg type="t" name="energyUj" />
+      <arg type="d" name="watts" />
+      <arg type="t" name="timestampUs" />
+    </signal>
+
+    <property name="PowerWatts" type="d" access="read" />
+    <property name="EnergyUj" type="t" access="read" />
+    <property name="MaxEnergyRangeUj" type="t" access="read" />
+    <property name="SampleIntervalMs" type="u" access="read" />
+    <property name="PackageName" type="s" access="read" />
+    <property name="Available" type="b" access="read" />
+    <property name="LastError" type="s" access="read" />
+    <property name="Version" type="s" access="read" />
+  </interface>
+</node>

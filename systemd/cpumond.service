@@ -1,0 +1,41 @@
+[Unit]
+Description=CPUPowerMon RAPL package power monitor
+After=dbus.service
+Wants=dbus.service
+
+[Service]
+Type=dbus
+BusName=org.cpupowermon.CpuMon
+ExecStart=/usr/local/lib/cpupowermon/cpumond
+WorkingDirectory=/usr/local/lib/cpupowermon
+User=root
+Group=root
+Restart=on-failure
+RestartSec=2s
+KillSignal=SIGTERM
+TimeoutStopSec=10s
+UMask=0027
+
+# Hardening that is compatible with the .NET runtime. Do not add
+# MemoryDenyWriteExecute=yes or seccomp filters: they break .NET.
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+RemoveIPC=yes
+RestrictAddressFamilies=AF_UNIX AF_NETLINK
+SystemCallArchitectures=native
+ReadOnlyPaths=/sys/class/powercap
+
+[Install]
+WantedBy=multi-user.target
